@@ -1,5 +1,52 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+{{!-- Template Code --}}
+<div class="container-fluid">
+  <header class="row align-items-center">
+    <div class="col">
+      <h1 id="logo">{{#link-to "index"}}Campy McCampground{{/link-to}}</h1>
+    </div>
+    <div class="col-auto asideToggle">
+      {{#bs-button type="primary" size="sm" onClick=(action "navToggle")}}I{{/bs-button}}
+    </div>
+  </header>
+  <div class="row">
+    <aside id="aside" class="col col-md-3">
+      <nav class="navbar navbar-light">
+        <ul class="navbar-nav">
+          <li id="stickyTopButton" class="nav-item asideToggle text-right">{{#bs-button type="primary" size="sm" onClick=(action "navToggle")}}O{{/bs-button}}</li>
+          <li class="nav-item asideToggle">{{#link-to "index" class="nav-link" invokeAction=(action "navToggle")}}Home{{/link-to}}</li>
+          {{#each this.model as |campground|}}
+            <li class="nav-item">{{#link-to "detail" campground.id class="nav-link" invokeAction=(action "navToggle")}}{{campground.name}}{{/link-to}}</li>
+          {{else}}
+            <li class="nav-item"><span class="nav-link font-italic">Sorry, there are no campgrounds yet.</span></li>
+          {{/each}}
+        </ul>
+      </nav>
+      <div id="stickyBottomButton">
+        {{#bs-button type="primary" outline=true size="sm" onClick=(action (mut campgroundForm) true)}}&#65291; Campground{{/bs-button}}
+        {{!-- {{#bs-button onClick=(action (mut modal) true)}}&#65291;{{/bs-button}} --}}
+      </div>
+    </aside>
+    {{!-- Kevin Love --}}
+    {{outlet}}
+    {{!-- /Kevin Love --}}
+  </div>
+</div>
+{{!-- /Template Code --}}
 
-{{outlet}}
+{{!-- Modal Form --}}
+{{#bs-modal open=campgroundForm position="center" onHidden=(action (mut campgroundForm) false) as |modal|}}
+  {{#modal.header}}
+    <h5>Add New Campground</h5>
+  {{/modal.header}}
+  {{#modal.body}}
+    {{#bs-form model=this onSubmit=(action "createCampground") as |form|}}
+      <div class="form-group">
+        {{input type="text" name="campgroundName" class="form-control form-control-sm" value=newCampgroundName placeholder="Awesome Campground" required=required}}
+      </div>
+      {{bs-button defaultText="Submit" type="outline-primary" buttonType="submit"}}
+      {{bs-button defaultText="Cancel" type="outline-secondary" buttonType="reset"}}
+    {{/bs-form}}
+  {{/modal.body}}
+{{/bs-modal}}
+{{!-- {{modal-form data=model modal=(readonly modal) onModalHidden=(action "onModalHidden")}} --}}
+{{!-- /Modal Form --}}

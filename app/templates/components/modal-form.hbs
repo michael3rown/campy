@@ -1,0 +1,14 @@
+{{#bs-modal open=modal position="center" onHidden=(action onModalHidden) as |modal|}}
+  {{#modal.header}}
+    <h5>Add New Campground</h5>
+  {{/modal.header}}
+  {{#modal.body}}
+    {{#bs-form model=data onSubmit=(action "createCampground") as |form|}}
+      <div class="form-group">
+        {{input type="text" name="campgroundNameInput" class="form-control form-control-sm" value=newCampgroundName placeholder="Awesome Campground" required=required}}
+      </div>
+      {{bs-button defaultText="Submit" type="outline-primary" buttonType="submit"}}
+      {{bs-button defaultText="Cancel" type="outline-secondary" buttonType="reset"}}
+    {{/bs-form}}
+  {{/modal.body}}
+{{/bs-modal}}

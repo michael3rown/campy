@@ -1,0 +1,101 @@
+@import "ember-bootstrap/bootstrap";
+
+header {
+  background-color: $gray-800;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  #logo {
+    font-size: $h5-font-size;
+    color: $white;
+    margin-bottom: 0;
+
+    @include media-breakpoint-up(sm) {
+      font-size: $h1-font-size;
+    }
+
+    a {
+      color: $white;
+      text-decoration: none;
+    }
+  }
+}
+
+.asideToggle {
+
+  @include media-breakpoint-up(md) {
+    display: none;
+  }
+}
+
+#aside {
+  display: none;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: $white;
+  overflow-y: scroll;
+
+
+
+  &.asideShow {
+    display:block;
+  }
+
+  @include media-breakpoint-up(md) {
+    display: block;
+    z-index: auto;
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    background-color: transparent;
+    overflow-y: visible;
+  }
+}
+
+.navbar {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.navbar-light {
+
+  .navbar-nav {
+    width: 100%;
+
+    @include media-breakpoint-up(md) {
+      width: auto;
+    }
+
+    .nav-link {
+      
+      @include hover-focus {
+        color: $black;
+      }
+
+      &.active {
+        color: $blue;
+      }
+    }
+  }
+}
+
+#stickyTopButton, #stickyBottomButton {
+  position: sticky;
+  background-color: $white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#stickyTopButton {
+  top: 0;
+}
+
+#stickyBottomButton {
+  bottom: 0;
+}
