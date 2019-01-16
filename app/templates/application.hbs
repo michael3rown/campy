@@ -13,7 +13,6 @@
       {{campground-navigation model=model}}
       <div id="stickyBottomButton">
         {{#bs-button type="primary" outline=true size="sm" onClick=(action (mut campgroundForm) true)}}&#65291; Campground{{/bs-button}}
-        {{!-- {{#bs-button onClick=(action (mut modal) true)}}&#65291;{{/bs-button}} --}}
       </div>
     </aside>
     {{!-- Kevin Love --}}
@@ -38,5 +37,4 @@
     {{/bs-form}}
   {{/modal.body}}
 {{/bs-modal}}
-{{!-- {{modal-form data=model modal=(readonly modal) onModalHidden=(action "onModalHidden")}} --}}
 {{!-- /Modal Form --}}

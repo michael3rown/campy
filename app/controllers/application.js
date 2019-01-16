@@ -12,11 +12,10 @@ export default Controller.extend({
       newRecord.save().then(() => {
         this.set('newCampgroundName', '');
       }).then(() => {
+        this.set('campgroundForm', false);
+      }).then(() => {
         this.transitionToRoute('detail', newRecord);
       });
-    },
-    onModalHidden() {
-      this.set('modal', false);
     }
   }
 });
