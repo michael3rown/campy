@@ -17,11 +17,6 @@ export default Controller.extend({
     },
     onModalHidden() {
       this.set('modal', false);
-    },
-    navToggle() {
-      let mobileMenu = document.getElementById('aside');
-      
-      mobileMenu.classList.toggle('asideShow');
     }
   }
 });

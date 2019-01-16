@@ -5,11 +5,13 @@
       <h1 id="logo">{{#link-to "index"}}Campy McCampground{{/link-to}}</h1>
     </div>
     <div class="col-auto asideToggle">
-      {{#bs-button type="primary" size="sm" onClick=(action "navToggle")}}I{{/bs-button}}
+      {{nav-toggle-button text="I"}}
     </div>
   </header>
   <div class="row">
     <aside id="aside" class="col col-md-3">
+      {{campground-navigation model=model}}
+      {{!--
       <nav class="navbar navbar-light">
         <ul class="navbar-nav">
           <li id="stickyTopButton" class="nav-item asideToggle text-right">{{#bs-button type="primary" size="sm" onClick=(action "navToggle")}}O{{/bs-button}}</li>
@@ -21,6 +23,7 @@
           {{/each}}
         </ul>
       </nav>
+      --}}
       <div id="stickyBottomButton">
         {{#bs-button type="primary" outline=true size="sm" onClick=(action (mut campgroundForm) true)}}&#65291; Campground{{/bs-button}}
         {{!-- {{#bs-button onClick=(action (mut modal) true)}}&#65291;{{/bs-button}} --}}
