@@ -11,19 +11,6 @@
   <div class="row">
     <aside id="aside" class="col col-md-3">
       {{campground-navigation model=model}}
-      {{!--
-      <nav class="navbar navbar-light">
-        <ul class="navbar-nav">
-          <li id="stickyTopButton" class="nav-item asideToggle text-right">{{#bs-button type="primary" size="sm" onClick=(action "navToggle")}}O{{/bs-button}}</li>
-          <li class="nav-item asideToggle">{{#link-to "index" class="nav-link" invokeAction=(action "navToggle")}}Home{{/link-to}}</li>
-          {{#each this.model as |campground|}}
-            <li class="nav-item">{{#link-to "detail" campground.id class="nav-link" invokeAction=(action "navToggle")}}{{campground.name}}{{/link-to}}</li>
-          {{else}}
-            <li class="nav-item"><span class="nav-link font-italic">Sorry, there are no campgrounds yet.</span></li>
-          {{/each}}
-        </ul>
-      </nav>
-      --}}
       <div id="stickyBottomButton">
         {{#bs-button type="primary" outline=true size="sm" onClick=(action (mut campgroundForm) true)}}&#65291; Campground{{/bs-button}}
         {{!-- {{#bs-button onClick=(action (mut modal) true)}}&#65291;{{/bs-button}} --}}
