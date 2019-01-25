@@ -5,6 +5,7 @@ export default Component.extend({
     navToggle() {
       let mobileMenu = document.getElementById('aside');
       mobileMenu.classList.toggle('asideShow');
+      //set(aside, 'asideShow', !asideShow);
     }
   }
 });

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-light">
   <ul class="navbar-nav">
-    <li id="stickyTopButton" class="nav-item asideToggle text-right">{{nav-toggle-button text="O"}}</li>
+    <li id="stickyTopButton" class="nav-item asideToggle text-right">{{nav-toggle-button outline=false text="O"}}</li>
     <li class="nav-item asideToggle">{{#link-to "index" class="nav-link" invokeAction=(action "navToggle")}}Home{{/link-to}}</li>
     {{#each this.model as |campground|}}
       <li class="nav-item">{{#link-to "detail" campground.id class="nav-link" invokeAction=(action "navToggle")}}{{campground.name}}{{/link-to}}</li>

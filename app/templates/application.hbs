@@ -5,14 +5,14 @@
       <h1 id="logo">{{#link-to "index"}}Campy McCampground{{/link-to}}</h1>
     </div>
     <div class="col-auto asideToggle">
-      {{nav-toggle-button text="I"}}
+      {{nav-toggle-button outline=false text="I"}}
     </div>
   </header>
   <div class="row">
     <aside id="aside" class="col col-md-3">
       {{campground-navigation model=model}}
       <div id="stickyBottomButton">
-        {{#bs-button type="primary" outline=true size="sm" onClick=(action (mut campgroundForm) true)}}&#65291; Campground{{/bs-button}}
+        {{#bs-button type="primary" outline=true size="sm" click=(action (mut campgroundForm) true)}}&#65291; Campground{{/bs-button}}
       </div>
     </aside>
     {{!-- Kevin Love --}}
@@ -23,18 +23,5 @@
 {{!-- /Template Code --}}
 
 {{!-- Modal Form --}}
-{{#bs-modal open=campgroundForm position="center" onHidden=(action (mut campgroundForm) false) as |modal|}}
-  {{#modal.header}}
-    <h5>Add New Campground</h5>
-  {{/modal.header}}
-  {{#modal.body}}
-    {{#bs-form model=this onSubmit=(action "createCampground") as |form|}}
-      <div class="form-group">
-        {{input type="text" name="campgroundName" class="form-control form-control-sm" value=newCampgroundName placeholder="Awesome Campground" required=required}}
-      </div>
-      {{bs-button defaultText="Submit" type="outline-primary" buttonType="submit"}}
-      {{bs-button defaultText="Cancel" type="outline-secondary" buttonType="reset"}}
-    {{/bs-form}}
-  {{/modal.body}}
-{{/bs-modal}}
+{{modal-campground-form campgroundForm=campgroundForm model=model}}
 {{!-- /Modal Form --}}
